@@ -1,6 +1,6 @@
 <div class="contact-form-fields">
   <h3>Submit A Post</h3>
-  <div [hidden]="!displaySent"><h2>Post submitted.</h2></div>
+  <div [hidden]="!displaySent"><span class="label label-success">Post successfully submitted</span></div>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" [hidden]="displaySent">
     <div class="form-group">
       <label for="title">Title</label>
@@ -19,9 +19,4 @@
     </div>
     <button type="submit" class="btn btn-default" [disabled]="contactForm.invalid">Submit Post</button>
   </form>
-</div>
-<div class="jumbotron" *ngFor="let post of posts">
-  <h3>{{ post.title }}</h3>
-  <div [innerHtml]="post.message"></div>
-  <button type="button" class="btn btn-danger" (click)="delete(post)">Delete Post</button>
 </div>

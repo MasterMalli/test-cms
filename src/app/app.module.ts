@@ -16,6 +16,8 @@ import { RouteHomeComponent } from './route-home/route-home.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { TinymceModule } from 'angular2-tinymce';
 import { PostService } from './post.service';
+import { RouteEditPostsComponent } from './route-edit-posts/route-edit-posts.component';
+import { EditablePostListComponent } from './editable-post-list/editable-post-list.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { PostService } from './post.service';
     AppComponent,
     SubmitPostComponent,
     RoutePostsComponent,
-    RouteHomeComponent
+    RouteHomeComponent,
+    RouteEditPostsComponent,
+    EditablePostListComponent
   ],
   imports: [
     BrowserModule,

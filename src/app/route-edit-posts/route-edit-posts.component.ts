@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from '../post.service';
-import { IPost } from '../submit-post/submit-post.component'
-
+import { IPost } from '../submit-post/submit-post.component';
 
 @Component({
-  selector: 'app-route-home',
-  templateUrl: './route-home.component.html',
-  styleUrls: ['./route-home.component.css']
+  selector: 'route-edit-posts',
+  templateUrl: './route-edit-posts.component.html',
+  styleUrls: ['./route-edit-posts.component.css']
 })
-export class RouteHomeComponent implements OnInit {
+export class RouteEditPostsComponent implements OnInit {
   posts: IPost[];
   
   constructor(private _postService: PostService) {

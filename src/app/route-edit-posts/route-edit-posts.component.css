@@ -5,3 +5,7 @@
 h3{
     padding-bottom:.5em;
 }
+.margin-bottom{
+    display:block;
+    margin-bottom: 2em;
+}

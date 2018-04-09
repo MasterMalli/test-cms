@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
 
-export interface Post {
+export interface IPost {
   title: string;
   body: string;
   postId?: string;
@@ -14,10 +14,11 @@ export interface Post {
   styleUrls: ['./submit-post.component.css']
 })
 export class SubmitPostComponent {
+  @Input('posts') posts: IPost[];
+  
   displaySent = false;
   contactForm: FormGroup;
-  posts: Post[];
-  post: Post;
+  post: IPost;
 
   constructor(private _postService: PostService) {
     this.contactForm = new FormGroup({
@@ -28,9 +29,6 @@ export class SubmitPostComponent {
     this._postService.getAll().subscribe(response => {
       this.posts = response;
     });
-    this._postService.get('WmPOeWGZvgCLS0EqjZBd').subscribe(response => {
-      this.post = response;
-    })
   }
 
   onSubmit() {
@@ -42,11 +40,6 @@ export class SubmitPostComponent {
     this._postService.submit(formRequest);
     this.contactForm.reset();
     this.displaySent = !this.displaySent;
-  }
-
-  delete(post){
-    console.log("Deleting...");
-    this._postService.delete(post);
   }
 
   get title() { return this.contactForm.get('title'); }
