@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RoutePostsComponent } from './route-posts/route-posts.component';
 import { RouteHomeComponent } from './route-home/route-home.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { TinymceModule } from 'angular2-tinymce';
 import { PostService } from './post.service';
 
 
@@ -28,7 +30,12 @@ import { PostService } from './post.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    EditorModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    TinymceModule.withConfig({
+      plugins: ['emoticons image imagetools table'],
+      toolbar: 'emoticons | formatselect'
+    })
   ],
   providers: [
     AngularFirestore,

@@ -5,6 +5,7 @@ import { PostService } from '../post.service';
 export interface Post {
   title: string;
   body: string;
+  postId?: string;
 }
 
 @Component({
@@ -17,7 +18,6 @@ export class SubmitPostComponent {
   contactForm: FormGroup;
   posts: Post[];
   post: Post;
-  postTitle: string;
 
   constructor(private _postService: PostService) {
     this.contactForm = new FormGroup({
@@ -30,19 +30,23 @@ export class SubmitPostComponent {
     });
     this._postService.get('WmPOeWGZvgCLS0EqjZBd').subscribe(response => {
       this.post = response;
-      this.postTitle = this.post.title;
     })
   }
 
   onSubmit() {
     const { title, message } = this.contactForm.value;
-    const date = Date();
+    const date = Date.now();
 
-    let formRequest = { date, title, message };
+    let formRequest = { date: new Date(), title, message };
 
     this._postService.submit(formRequest);
     this.contactForm.reset();
     this.displaySent = !this.displaySent;
+  }
+
+  delete(post){
+    console.log("Deleting...");
+    this._postService.delete(post);
   }
 
   get title() { return this.contactForm.get('title'); }
