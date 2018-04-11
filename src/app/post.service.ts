@@ -22,7 +22,7 @@ export class PostService {
     this._item = this._af.doc<IPost>(`posts/${id}`);
     return this._item.valueChanges();
   }
-  submit(post){
+  create(post: IPost){
     this._af.collection('posts')
       .add(post)
       .then(ref => {
@@ -45,5 +45,16 @@ export class PostService {
       .catch(err => {
         console.log(`An error occurred: ${err}`);
       });
+  }
+  update(post: IPost){
+    this._item = this._af.doc<IPost>(`posts/${post.postId}`);
+    this._item.update(post)
+      .then(response => {
+        if(response)
+          console.log(`Post updated: ${response}`);
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 }

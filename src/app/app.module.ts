@@ -10,11 +10,11 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RoutePostsComponent } from './route-posts/route-posts.component';
 import { RouteHomeComponent } from './route-home/route-home.component';
 import { EditorModule } from '@tinymce/tinymce-angular';
-import { TinymceModule } from 'angular2-tinymce';
+// import { TinymceModule } from 'angular2-tinymce';
 import { PostService } from './post.service';
 import { RouteEditPostsComponent } from './route-edit-posts/route-edit-posts.component';
 import { EditablePostListComponent } from './editable-post-list/editable-post-list.component';
@@ -34,12 +34,14 @@ import { EditablePostListComponent } from './editable-post-list/editable-post-li
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     EditorModule,
     AngularFireModule.initializeApp(environment.firebase),
-    TinymceModule.withConfig({
-      plugins: ['emoticons image imagetools table'],
-      toolbar: 'emoticons | formatselect'
-    })
+    // TinymceModule.withConfig({
+    //   plugins: ['emoticons image imagetools table paste'],
+    //   toolbar: 'emoticons | formatselect'
+    //   // paste_text_sticky : true,
+    // })
   ],
   providers: [
     AngularFirestore,

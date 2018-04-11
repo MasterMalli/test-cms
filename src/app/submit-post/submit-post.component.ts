@@ -6,6 +6,7 @@ export interface IPost {
   title: string;
   body: string;
   postId?: string;
+  date?: Date;
 }
 
 @Component({
@@ -15,15 +16,16 @@ export interface IPost {
 })
 export class SubmitPostComponent {
   @Input('posts') posts: IPost[];
-  
+
   displaySent = false;
   contactForm: FormGroup;
   post: IPost;
+  // blank: string = " ";
 
   constructor(private _postService: PostService) {
     this.contactForm = new FormGroup({
       title: new FormControl('', Validators.required),
-      message: new FormControl('', Validators.required)
+      body: new FormControl('', Validators.required)
     });
 
     this._postService.getAll().subscribe(response => {
@@ -32,16 +34,16 @@ export class SubmitPostComponent {
   }
 
   onSubmit() {
-    const { title, message } = this.contactForm.value;
+    const { title, body } = this.contactForm.value;
     const date = Date.now();
 
-    let formRequest = { date: new Date(), title, message };
+    let formRequest = { date: new Date(), title, body };
 
-    this._postService.submit(formRequest);
+    this._postService.create(formRequest);
     this.contactForm.reset();
     this.displaySent = !this.displaySent;
   }
 
   get title() { return this.contactForm.get('title'); }
-  get message() { return this.contactForm.get('message'); }
+  get body() { return this.contactForm.get('body'); }
 }

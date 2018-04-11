@@ -1,6 +1,9 @@
 <div class="contact-form-fields">
   <h3>Submit A Post</h3>
-  <div [hidden]="!displaySent"><span class="label label-success">Post successfully submitted</span></div>
+  <div [hidden]="!displaySent">
+    <span class="label label-success">Post successfully submitted</span> 
+    <button class="btn btn-sm" (click)="displaySent = !displaySent">Submit Another</button>
+  </div>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" [hidden]="displaySent">
     <div class="form-group">
       <label for="title">Title</label>
@@ -10,11 +13,14 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="message">Body</label>
-      <!-- <textarea id="message" cols="30" rows="4" class="form-control" formControlName="message" placeholder="Message"></textarea> -->
-      <app-tinymce id="message" formControlName="message"></app-tinymce>      
-      <div *ngIf="message.invalid && (message.touched || message.dirty)" class="alert alert-danger">
-        <div *ngIf="message.errors.required">Message is required.</div>
+      <label for="body">Body</label>
+      <editor
+        apiKey="wzzab1v9s3p87kwb0vbtlz9t6bgzlghtrcr3jsmvpgyqmo4r"
+        formControlName="body"
+        [init]="{selector: 'editor', plugins: ['paste'], paste_as_text : true, allow_html_in_named_anchor: false}"
+      ></editor>
+      <div *ngIf="body.invalid && (body.touched || body.dirty)" class="alert alert-danger">
+        <div *ngIf="body.errors.required">Main text is required.</div>
       </div>
     </div>
     <button type="submit" class="btn btn-default" [disabled]="contactForm.invalid">Submit Post</button>
