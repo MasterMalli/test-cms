@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../post.service';
+import { PostService } from '../services/post.service';
 import { IPost } from '../submit-post/submit-post.component';
 
 @Component({
@@ -8,7 +8,7 @@ import { IPost } from '../submit-post/submit-post.component';
   styleUrls: ['./route-posts.component.css']
 })
 export class RoutePostsComponent implements OnInit {
-  posts: IPost[];  
+  posts: IPost[];
 
   constructor(private _postService: PostService) {
     this._postService.getAll().subscribe(response => {

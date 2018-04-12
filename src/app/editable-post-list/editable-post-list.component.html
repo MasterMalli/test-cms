@@ -15,5 +15,6 @@
           [(ngModel)]="post.body"
         ></editor>
     <button type="button" class="btn btn-primary" (click)="editPost(post)">Submit Edit</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelEdit(post.postId)">Cancel Edit</button>
   </div>
 </div>

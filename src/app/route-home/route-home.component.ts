@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../post.service';
-import { IPost } from '../submit-post/submit-post.component'
+import { PostService } from '../services/post.service';
+import { IPost } from '../submit-post/submit-post.component';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { IPost } from '../submit-post/submit-post.component'
 })
 export class RouteHomeComponent implements OnInit {
   posts: IPost[];
-  
+
   constructor(private _postService: PostService) {
     this._postService.getAll().subscribe(response => {
       this.posts = response;

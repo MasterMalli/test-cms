@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PostService } from '../post.service';
+import { PostService } from '../services/post.service';
 
 export interface IPost {
   title: string;
@@ -10,6 +10,7 @@ export interface IPost {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'submit-post',
   templateUrl: './submit-post.component.html',
   styleUrls: ['./submit-post.component.css']
@@ -37,7 +38,7 @@ export class SubmitPostComponent {
     const { title, body } = this.contactForm.value;
     const date = Date.now();
 
-    let formRequest = { date: new Date(), title, body };
+    const formRequest = { date: new Date(), title, body };
 
     this._postService.create(formRequest);
     this.contactForm.reset();
