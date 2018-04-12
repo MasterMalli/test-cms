@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IPost } from '../submit-post/submit-post.component';
+import { IPost } from '../common/ipost';
 import { PostService } from '../services/post.service';
 import { DomSanitizer } from '@angular/platform-browser';
 

@@ -1,13 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostService } from '../services/post.service';
-
-export interface IPost {
-  title: string;
-  body: string;
-  postId?: string;
-  date?: Date;
-}
+import { IPost } from '../common/ipost';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -21,16 +15,11 @@ export class SubmitPostComponent {
   displaySent = false;
   contactForm: FormGroup;
   post: IPost;
-  // blank: string = " ";
 
   constructor(private _postService: PostService) {
     this.contactForm = new FormGroup({
       title: new FormControl('', Validators.required),
       body: new FormControl('', Validators.required)
-    });
-
-    this._postService.getAll().subscribe(response => {
-      this.posts = response;
     });
   }
 
@@ -42,6 +31,7 @@ export class SubmitPostComponent {
 
     this._postService.create(formRequest);
     this.contactForm.reset();
+    this.body.setValue('');
     this.displaySent = !this.displaySent;
   }
 
