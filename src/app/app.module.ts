@@ -21,6 +21,7 @@ import { CoreModule } from './core/core.module';
 
 import { PostService } from './services/post.service';
 import { DataService } from './services/data.service';
+import { TopPanelComponent } from './top-panel/top-panel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DataService } from './services/data.service';
     RoutePostsComponent,
     RouteHomeComponent,
     RouteEditPostsComponent,
-    EditablePostListComponent
+    EditablePostListComponent,
+    TopPanelComponent
   ],
   imports: [
     BrowserModule,
