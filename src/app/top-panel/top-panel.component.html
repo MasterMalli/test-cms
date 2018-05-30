@@ -1,20 +1,32 @@
-<div *ngIf="service.user | async; then authenticated else guest"></div>
-
 <div class="top-panel">
-  <ng-template #guest>
-    <h4>Hi Guest - Please login</h4>
-    <button (click)="service.googleLogin()">
+  <div id="panel-left">
+      <a *ngFor="let link of links" class="btn btn-dark btn-sm" [routerLink]="link.url">{{ link.text }}</a>
+  </div>
+  <div id="panel-right">
+    <div *ngIf="service.user | async; then authenticated else guest"></div>
+    <ng-template #guest>
+      <div>
+        <span>Hi guest - sign in to edit</span>
+        <a class="btn btn-primary btn-sm" routerLink="login">login</a>
+      </div>
+      <!-- <button (click)="service.googleLogin(false)">
       <i class="fa fa-google"></i> Login with Google
-    </button>
-  </ng-template>
-  
-  <ng-template #authenticated>
-    <div *ngIf="service.user | async as user">
-      <img [src]="user.photoUrl" alt="user.username">
-      <h4>Welcome, <strong>{{ user.username }}</strong></h4>
-      <button (click)="service.signOut()">
-        Sign Out
-      </button>
-    </div>
-  </ng-template>
+    </button> -->
+    </ng-template>
+
+    <ng-template #authenticated>
+      <div *ngIf="service.user | async as user">
+        <img [src]="user.photoUrl" alt="user.username">
+        <div>
+          <span>
+            Welcome,
+            <strong>{{ user.username }}</strong>
+          </span>
+          <button class="btn btn-default btn-sm" (click)="service.signOut()">
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </ng-template>
+  </div>
 </div>

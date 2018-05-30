@@ -5,3 +5,25 @@
 h3{
     padding-bottom:.5em;
 }
+@media only screen and (max-width: 735px) {
+    .btn-one {
+        width:50%;
+        margin-top: -2em;
+        border-radius: 0 0 0 5px;
+        float: left;
+    }
+    .btn-two {
+        width:50%;
+        margin-top: -2em;        
+        border-radius: 0 0 5px 0;
+        float: left;
+    }
+    .jumbotron{
+        padding: 0 0 0 0;
+        margin-top:2em;
+    }
+    .jum-wrap {
+        display:block;
+        padding: 3em 2em 3em 2em;
+    }
+}

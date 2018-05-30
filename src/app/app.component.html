@@ -1,12 +1,9 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<top-panel></top-panel>
-<div style="text-align:center">
-  <h1>
-    {{ title }}
-  </h1>
+<top-panel [links]="links"></top-panel>
+<div id="wrapper">
+  <div style="text-align:center">
+    <h1>
+      {{ title }}
+    </h1>
+  </div>
+  <router-outlet></router-outlet>
 </div>
-<a routerLink="/">Go to home page</a> | 
-<a routerLink="posts">Go to posts</a> | 
-<a routerLink="edit-posts">Go to edit posts</a>
-
-<router-outlet></router-outlet>

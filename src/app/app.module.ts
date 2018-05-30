@@ -2,26 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
-import { SubmitPostComponent } from './submit-post/submit-post.component';
-import { RoutePostsComponent } from './route-posts/route-posts.component';
-import { RouteHomeComponent } from './route-home/route-home.component';
-import { RouteEditPostsComponent } from './route-edit-posts/route-edit-posts.component';
-import { EditablePostListComponent } from './editable-post-list/editable-post-list.component';
-
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { environment } from '../environments/environment';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { CoreModule } from './core/core.module';
 // import { TinymceModule } from 'angular2-tinymce';
 
+import { AppComponent } from './app.component';
+import { RoutePostsComponent } from './route-posts/route-posts.component';
+import { RouteHomeComponent } from './route-home/route-home.component';
+import { RouteEditPostsComponent } from './route-edit-posts/route-edit-posts.component';
+import { RouteLoginComponent } from './route-login/route-login.component';
+import { SubmitPostComponent } from './submit-post/submit-post.component';
+import { EditablePostListComponent } from './editable-post-list/editable-post-list.component';
+import { TopPanelComponent } from './top-panel/top-panel.component';
+
+import { AngularFirestore } from 'angularfire2/firestore';
+import { environment } from '../environments/environment';
+
 import { PostService } from './services/post.service';
 import { DataService } from './services/data.service';
-import { TopPanelComponent } from './top-panel/top-panel.component';
+import { AuthGuard } from './core/auth.guard';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { TopPanelComponent } from './top-panel/top-panel.component';
     RouteHomeComponent,
     RouteEditPostsComponent,
     EditablePostListComponent,
-    TopPanelComponent
+    TopPanelComponent,
+    RouteLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import { TopPanelComponent } from './top-panel/top-panel.component';
     FormsModule,
     EditorModule,
     AngularFireModule.initializeApp(environment.firebase),
-    CoreModule
+    CoreModule,
+    Angular2FontawesomeModule
     // TinymceModule.withConfig({
     //   plugins: ['emoticons image imagetools table paste'],
     //   toolbar: 'emoticons | formatselect'
@@ -51,7 +56,8 @@ import { TopPanelComponent } from './top-panel/top-panel.component';
   providers: [
     AngularFirestore,
     PostService,
-    DataService
+    DataService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

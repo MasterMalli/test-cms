@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'managment';
+  links: any[];
+
+  constructor() {
+    this.links = [
+      {url: '/', text: 'Go to home page'},
+      {url: 'posts', text: 'Go to posts'},
+      {url: 'edit-posts', text: 'Go to edit posts'}
+    ];
+  }
 }

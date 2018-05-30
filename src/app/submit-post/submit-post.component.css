@@ -5,3 +5,10 @@
 h3{
     padding-bottom:.5em;
 }
+
+@media only screen and (max-width: 735px) {
+    button {
+        width:100%;
+        border-radius: 0;
+    }
+}

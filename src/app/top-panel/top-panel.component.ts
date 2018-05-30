@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../core/auth.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { AuthService } from '../core/auth.service';
   styleUrls: ['./top-panel.component.css']
 })
 export class TopPanelComponent implements OnInit {
+  @Input('links') links: any[];
 
   constructor(public service: AuthService) { }
 

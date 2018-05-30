@@ -4,4 +4,5 @@ export interface IPost {
     postId?: string;
     date?: Date;
     modifiedDate?: Date;
+    userId?: string;
 }

@@ -16,27 +16,31 @@ export class AuthService {
   constructor(
     private _af: AngularFirestore,
     private _afAuth: AngularFireAuth,
-    private router: Router
+    private _router: Router
   ) {
       this.user = this._afAuth.authState
         .switchMap(user => {
           if (user) {
             return this._af.doc<IUser>(`users/${user.uid}`).valueChanges();
           } else {
-            console.log('# returned null');
             return Observable.of(null);
           }
         });
   }
 
-  googleLogin() {
+  googleLogin(redirect: boolean) {
     const provider = new firebase.auth.GoogleAuthProvider();
-    return this.oAuthLogin(provider);
+    return this.oAuthLogin(provider, redirect);
   }
-  oAuthLogin(provider) {
+  oAuthLogin(provider, redirect) {
     return this._afAuth.auth.signInWithPopup(provider)
     .then(credential => {
       this.updateUserData(credential.user);
+    })
+    .then(() => {
+      if (redirect) {
+        this._router.navigate(['/']);
+      }
     });
   }
   updateUserData(user) {
@@ -52,9 +56,12 @@ export class AuthService {
     };
     return userRef.set(data, { merge: true });
   }
+  getCurrentUser() {
+    return this._afAuth.auth.currentUser;
+  }
   signOut() {
     this._afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/']);
+      this._router.navigate(['/']);
     });
   }
 }

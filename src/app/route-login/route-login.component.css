@@ -1,0 +1,15 @@
+button {
+    background:none;
+    background-image: url("../../assets/btn_google_signin_light_normal_web.png");
+    border: none;
+    cursor: pointer;
+    width:191px;
+    height: 46px;
+}
+button:hover {
+    background:none;
+    background-image: url("../../assets/btn_google_signin_light_pressed_web.png");
+    border: none;
+    width:191px;
+    height: 46px;
+}

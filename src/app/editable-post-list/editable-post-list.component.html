@@ -1,20 +1,26 @@
 <div class="jumbotron" *ngFor="let post of posts">
+  
   <div [hidden]="editMode[post.postId]">
-    <h3>{{ post.title }}</h3>
-    <div [innerHtml]="post.body"></div>
-    <button type="button" class="btn btn-danger" (click)="delete(post)">Delete Post</button>
-    <button type="button" class="btn btn-primary" (click)="edit(post)">Edit Post</button>
+    <div class="jum-wrap">
+      <h3>{{ post.title }}</h3>
+      <div [innerHtml]="post.body"></div>
+    </div>
+    <button type="button" class="btn btn-danger btn-one" (click)="delete(post)">Delete Post</button>
+    <button type="button" class="btn btn-primary btn-two" (click)="edit(post)">Edit Post</button>
   </div>
   <div [hidden]="!editMode[post.postId]">
-    <label for="inputTitle">Title</label>    
-    <input type="text" id="inputTitle" class="form-control" [(ngModel)]="post.title" name="inputTitle" #inputTitle="ngModel">
-    <!-- <app-tinymce id="body" [(ngModel)]="post.body"></app-tinymce> -->
-    <label>Body</label>    
-    <editor
-          apiKey="wzzab1v9s3p87kwb0vbtlz9t6bgzlghtrcr3jsmvpgyqmo4r"
-          [(ngModel)]="post.body"
-        ></editor>
-    <button type="button" class="btn btn-primary" (click)="editPost(post)">Submit Edit</button>
-    <button type="button" class="btn btn-secondary" (click)="cancelEdit(post.postId)">Cancel Edit</button>
+    <div class="jum-wrap">
+      <label for="inputTitle">Title</label>    
+      <input type="text" id="inputTitle" class="form-control" [(ngModel)]="post.title" name="inputTitle" #inputTitle="ngModel">
+      <!-- <app-tinymce id="body" [(ngModel)]="post.body"></app-tinymce> -->
+      <label>Body</label>    
+      <editor
+            apiKey="wzzab1v9s3p87kwb0vbtlz9t6bgzlghtrcr3jsmvpgyqmo4r"
+            [(ngModel)]="post.body"
+          ></editor>
+    </div>
+    <button type="button" class="btn btn-primary btn-one" (click)="editPost(post)">Submit Edit</button>
+    <button type="button" class="btn btn-secondary btn-two" (click)="cancelEdit(post.postId)">Cancel Edit</button>
   </div>
+
 </div>

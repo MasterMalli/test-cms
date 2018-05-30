@@ -1,0 +1,13 @@
+#wrapper{
+    padding:4em 2em 2em 2em;
+}
+top-panel {
+    display: block;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+}
+router-outlet {
+    display: block;
+    margin-top: 1em;
+}
