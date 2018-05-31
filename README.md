@@ -1,5 +1,7 @@
 # TestCms
 
+See the [demo](https://test-cms-22606.firebaseapp.com) of this project in action.
+
 This project is an example of a simple CMS, using the following technologies:
 - Angular 5
 - Firebase
@@ -7,7 +9,7 @@ This project is an example of a simple CMS, using the following technologies:
 - Bootstrap
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+Generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
 
