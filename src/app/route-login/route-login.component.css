@@ -1,4 +1,4 @@
-button {
+.google-btn {
     background:none;
     background-image: url("../../assets/btn_google_signin_light_normal_web.png");
     border: none;
@@ -6,7 +6,7 @@ button {
     width:191px;
     height: 46px;
 }
-button:hover {
+.google-btn:hover {
     background:none;
     background-image: url("../../assets/btn_google_signin_light_pressed_web.png");
     border: none;

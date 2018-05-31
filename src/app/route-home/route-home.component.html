@@ -1,3 +1,28 @@
 <h2>Home Page</h2>
-<p></p>
+<div class="jumbotron">
+    <h3>A CMS Project by <a href="https://github.com/MasterMalli">Malachi Jones</a></h3>
+    <p>
+        This project is an example of a simple CMS, using the following technologies:
+        <ul>
+            <li>Angular 6</li>
+            <li>Firebase</li>
+            <li>Google OAuth 2.0</li>
+            <li>Bootstrap</li>
+        </ul>
+    <h3>Navigation and Web App Functionality</h3>
+    <p>
+        In regard to the 4 links on the navigation bar, I've developed this CMS so that all pages are accessible as a visitor, apart from the edit-posts page.
+    </p>
+    <u>Logging In</u>
+    <p>
+        Attempting to access the <a [routerLink]="['edit-posts']">edit-posts</a> page will prompt you to log in, this is achieved via the use of an AuthGuard class which checks if a user is signed in or not.
+    </p>
+    <p>
+        Google's OAuth 2.0 (importing the AngularFireAuth) is used for logging in users; once logged in, you will automatically be given access and be able to edit and add posts to the Firebase database.
+    </p>
+    <u>The Firebase 'Firestore' Database</u>
+    <p>
+        Using JavaScript <a href="https://angular.io/guide/rx-library">RXJS</a>, a connection to Google's Firebase Firestore database is made, providing realtime asynchronous feedback on all CRUD operations.
+    </p>
+</div>
 <!-- <editor></editor> -->

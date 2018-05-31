@@ -19,7 +19,7 @@ import { SubmitPostComponent } from './submit-post/submit-post.component';
 import { EditablePostListComponent } from './editable-post-list/editable-post-list.component';
 import { TopPanelComponent } from './top-panel/top-panel.component';
 
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 
 import { PostService } from './services/post.service';
@@ -45,6 +45,7 @@ import { AuthGuard } from './core/auth.guard';
     FormsModule,
     EditorModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     CoreModule,
     Angular2FontawesomeModule
     // TinymceModule.withConfig({

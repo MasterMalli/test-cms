@@ -1,9 +1,9 @@
-<div class="alert alert-warning">Please login to view this page</div>
 <div *ngIf="service.user | async; then authenticated else guest"></div>
 
 <div class="top-panel">
   <ng-template #guest>
-    <button (click)="service.googleLogin(true)">
+    <div class="alert alert-warning">Please login to view this page</div>
+    <button class="google-btn" (click)="service.googleLogin(true)">
       <!-- <i class="fa fa-google"></i> Login with Google --> 
     </button>
   </ng-template>
@@ -12,7 +12,7 @@
     <div *ngIf="service.user | async as user">
       <h4>Hi, <strong>{{ user.username }}</strong></h4>
       <p>You're already logged in.</p>
-      <button (click)="service.signOut()">
+      <button class="btn btn-default" (click)="service.signOut()">
         Sign Out
       </button>
     </div>
