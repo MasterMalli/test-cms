@@ -1,5 +1,12 @@
 # TestCms
 
+This project is an example of a simple CMS, using the following technologies:
+- Angular 5
+- Firebase
+- Google OAuth 2.0
+- Bootstrap
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
