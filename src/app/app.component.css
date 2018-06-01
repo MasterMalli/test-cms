@@ -1,5 +1,5 @@
 #wrapper{
-    padding:4em 2em 2em 2em;
+    padding:5em 2em 2em 2em;
 }
 top-panel {
     display: block;
@@ -10,4 +10,9 @@ top-panel {
 router-outlet {
     display: block;
     margin-top: 1em;
+}
+@media only screen and (max-width: 765px) {
+    #wrapper{
+        padding:8em 2em 2em 2em;
+    }
 }

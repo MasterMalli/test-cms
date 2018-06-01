@@ -11,16 +11,16 @@
         </ul>
     <h3>Navigation and Web App Functionality</h3>
     <p>
-        In regard to the 4 links on the navigation bar, I've developed this CMS so that all pages are accessible as a visitor, apart from the edit-posts page.
+        In regard to the links on the navigation bar, I've developed this CMS so that all pages are accessible as a visitor, apart from the <a [routerLink]="['edit-posts']">edit-posts</a> page.
     </p>
-    <u>Logging In</u>
+    <h4>Logging In</h4>
     <p>
         Attempting to access the <a [routerLink]="['edit-posts']">edit-posts</a> page will prompt you to log in, this is achieved via the use of an AuthGuard class which checks if a user is signed in or not.
     </p>
     <p>
         Google's OAuth 2.0 (importing the AngularFireAuth) is used for logging in users; once logged in, you will automatically be given access and be able to edit and add posts to the Firebase database.
     </p>
-    <u>The Firebase 'Firestore' Database</u>
+    <h4>The Firebase 'Firestore' Database</h4>
     <p>
         Using JavaScript <a href="https://angular.io/guide/rx-library">RXJS</a>, a connection to Google's Firebase Firestore database is made, providing realtime asynchronous feedback on all CRUD operations.
     </p>
